@@ -53,7 +53,7 @@ const translations = {
     homeAppCPhone: 'CPhone',
     homeAppDouban: '豆瓣',
     homeAppPreset: '预设',
-    homeAppTutorial: '教程',
+   // homeAppTutorial: '教程',
     homeAppWerewolf: '狼人杀',
     homeAppX: 'X',
 
@@ -115,7 +115,7 @@ const translations = {
     presetAddEntryBtn: '[+] 添加新条目',
 
     // --- 教程 ---
-    tutorialTitle: '教程',
+   // tutorialTitle: '教程',
     
     // --- API 设置 ---
     apiSettingsTitle: 'API 设置',
@@ -16894,7 +16894,7 @@ function applyCPhoneWallpaper() {
        
        'preset': '预设',
              
-           'tutorial': '教程',
+       //    'tutorial': '教程',
    'werewolf': '狼人杀',
      
    'x': 'X'
