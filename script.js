@@ -800,15 +800,12 @@ const phoneScreenForIsland = document.getElementById('phone-screen');
 
             document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('visibilitychange', () => {
-  // 当应用从后台切换到前台时
-  if (document.visibilityState === 'visible') {
-    console.log('应用已返回前台，正在检查更新...');
-    // 确保 Service Worker 已经准备好
-    navigator.serviceWorker.ready.then(registration => {
-      // 静默地触发一次更新检查
-      registration.update();
-    });
-  }
+  if (document.visibilityState !== 'visible') return;
+  if (!('serviceWorker' in navigator) || !navigator.serviceWorker?.ready) return; // 某些移动端/内嵌浏览器不支持 SW，避免报错中断初始化
+
+  navigator.serviceWorker.ready
+    .then(registration => registration.update())
+    .catch(err => console.warn('ServiceWorker update skipped:', err));
 });
 function toGeminiRequestData(model, apiKey, systemInstruction, messagesForDecision) {
     const apiTemperature = state.globalSettings.apiTemperature || 0.8; 
