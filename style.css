@@ -8646,15 +8646,13 @@ body.detach-mode-active #phone-screen::after,
 body.detach-mode-active #phone-screen::before {
     display: none;
 }
-/* 【全局修复】将Dock栏和分页点的位置固定在更低的位置，忽略底部安全区 */
+/* 将 Dock 区与分页点略微上移，并重新尊重底部安全区，避免全屏手机下被遮挡 */
 #home-screen-pagination {
-    /* 移除 calc 和 env() */
-    padding-bottom: 10px;
+    padding-bottom: calc(14px + env(safe-area-inset-bottom));
 }
 
 #desktop-dock {
-    /* 移除 calc 和 env() */
-    margin-bottom: 20px;
+    margin-bottom: calc(26px + env(safe-area-inset-bottom));
 }
 /* ======================================= */
 /* ▼▼▼ 【新功能】简洁聊天界面 (Minimal Chat UI) ▼▼▼ */
